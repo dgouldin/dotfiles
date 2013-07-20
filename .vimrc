@@ -35,3 +35,6 @@ autocmd FileType gitcommit setlocal textwidth=72 fo+=t
 
 " Highlight search results
 set hlsearch
+
+" Fix the backspace key
+set backspace=2
