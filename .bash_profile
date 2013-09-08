@@ -24,3 +24,5 @@ vol () { osascript -e "set volume output volume $*"; }
 source /Users/dgouldin/.nvm/nvm.sh
 
 HISTCONTROL=ignorespace
+
+alias happy_place='python -c "import this"'

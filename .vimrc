@@ -38,3 +38,6 @@ set hlsearch
 
 " Fix the backspace key
 set backspace=2
+
+" Treat all numbers as decimal
+set nrformats=
