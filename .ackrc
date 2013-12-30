@@ -1,5 +1,5 @@
 --pager=less -iqRS
 -C4
 --type-add=ruby=.haml,.builder
---type-add=css=.sass
+--type-add=css=.scss
 --type-set=views=.erb,.haml
