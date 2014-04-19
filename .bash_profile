@@ -1,6 +1,6 @@
 export ARCHFLAGS="-arch x86_64"
 
-PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/1.9.3-p194/bin:~/github/git-hooks:/usr/X11/bin:$PATH
+PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/1.9.3-p194/bin:~/github/git-hooks:/usr/X11/bin:~/bin:$PATH
 
 alias pycrm='find . -name '*.pyc' -delete'
 alias dgouldin_tunnel='ssh -NR20020:127.0.0.1:8000 gould.in'
@@ -27,6 +27,8 @@ HISTCONTROL=ignorespace
 
 alias happy_place='python -c "import this"'
 
+export EDITOR=/usr/local/bin/vim
+
 tmux() {
   # stolen from: https://gist.github.com/lann/6771001
   SOCK_SYMLINK=~/.ssh/ssh_auth_sock
@@ -39,3 +41,6 @@ tmux() {
     env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux $@
   fi
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
