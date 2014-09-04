@@ -41,3 +41,8 @@ set backspace=2
 
 " Treat all numbers as decimal
 set nrformats=
+
+" Status bar
+set ruler
+
+let g:vim_isort_map = '<C-i>'

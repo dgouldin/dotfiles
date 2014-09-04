@@ -6,34 +6,42 @@ config resizePercentOf screenSize
 
 # Monitor Aliases
 alias mon_laptop 1366x768
+alias mon_heroku_laptop 1440x900
 alias mon_cinema 2560x1440
 
 # Width Aliases
 alias buffer 10
 alias width_adium 225
-alias width_echofon 275
+alias width_twitter 375
 
 # Move Aliases
-alias move_full_screen_except_adium_echofon move screenOriginX+${width_adium}+${buffer};screenOriginY screenSizeX-${width_adium}-${width_echofon}-2*${buffer};screenSizeY
+alias move_full_screen_except_adium_twitter move screenOriginX+${width_adium}+${buffer};screenOriginY screenSizeX-${width_adium}-${width_twitter}-2*${buffer};screenSizeY
 alias move_full_screen move screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias move_adium move screenOriginX;screenOriginY ${width_adium};screenSizeY
-alias move_echofon move screenSizeX-${width_echofon};screenOriginY ${width_echofon};screenSizeY
+alias move_twitter move screenSizeX-${width_twitter};screenOriginY ${width_twitter};screenSizeY
 
 # Layout definitions
 layout laptop_only 'iTerm' ${move_full_screen} ${mon_laptop}
 layout laptop_only 'Google Chrome':REPEAT ${move_full_screen} ${mon_laptop}
 layout laptop_only 'Textual' ${move_full_screen} ${mon_laptop}
 layout laptop_only 'Adium':IGNORE_FAIL,TITLE_ORDER=Contacts ${move_adium} ${mon_laptop}
-layout laptop_only 'Echofon' ${move_echofon} ${mon_laptop}
+layout laptop_only 'Twitter' ${move_twitter} ${mon_laptop}
+
+layout heroku_laptop_only 'iTerm' ${move_full_screen} ${mon_laptop}
+layout heroku_laptop_only 'Google Chrome':REPEAT ${move_full_screen} ${mon_laptop}
+layout heroku_laptop_only 'Textual' ${move_full_screen} ${mon_laptop}
+layout heroku_laptop_only 'Adium':IGNORE_FAIL,TITLE_ORDER=Contacts ${move_adium} ${mon_laptop}
+layout heroku_laptop_only 'Twitter' ${move_twitter} ${mon_laptop}
 
 layout cinema_only 'iTerm' ${move_full_screen} ${mon_cinema}
-layout cinema_only 'Google Chrome':REPEAT ${move_full_screen_except_adium_echofon} ${mon_cinema}
-layout cinema_only 'Textual' ${move_full_screen_except_adium_echofon} ${mon_cinema}
+layout cinema_only 'Google Chrome':REPEAT ${move_full_screen_except_adium_twitter} ${mon_cinema}
+layout cinema_only 'Textual' ${move_full_screen_except_adium_twitter} ${mon_cinema}
 layout cinema_only 'Adium':IGNORE_FAIL,TITLE_ORDER=Contacts ${move_adium} ${mon_cinema}
-layout cinema_only 'Echofon' ${move_echofon} ${mon_cinema}
+layout cinema_only 'Twitter' ${move_twitter} ${mon_cinema}
 
 # Default Layouts
 default laptop_only resolutions:${mon_laptop}
+default heroku_laptop_only resolutions:${mon_heroku_laptop}
 default cinema_only resolutions:${mon_cinema}
 
 # Resize Bindings
@@ -68,12 +76,12 @@ bind up:ctrl;alt;cmd    throw up    resize
 bind down:ctrl;alt;cmd  throw down  resize
 
 # Focus Bindings
-bind right:cmd    focus right
-bind left:cmd     focus left
-bind up:cmd       focus up
-bind down:cmd     focus down
-bind up:cmd;alt   focus behind
-bind down:cmd;alt focus behind
+#bind right:cmd    focus right
+#bind left:cmd     focus left
+#bind up:cmd       focus up
+#bind down:cmd     focus down
+#bind up:cmd;alt   focus behind
+#bind down:cmd;alt focus behind
 
 # Window Hints
 bind esc:cmd hint
