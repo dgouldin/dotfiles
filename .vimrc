@@ -46,3 +46,6 @@ set nrformats=
 set ruler
 
 let g:vim_isort_map = '<C-i>'
+
+" Ignore file types
+set wildignore=*.pyc,*.gif,*.png,*.jpg

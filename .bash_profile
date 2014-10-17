@@ -21,13 +21,14 @@ source /usr/local/bin/virtualenvwrapper.sh
 vol () { osascript -e "set volume output volume $*"; }
 
 # node.js stuff
-source /Users/dgouldin/.nvm/nvm.sh
+source $(brew --prefix nvm)/nvm.sh
 NODE_PATH=/usr/local/lib/node_modules
 NODE_PATH=/usr/local/node:/usr/local/node/lib/node_modules
 
 HISTCONTROL=ignorespace
 
 alias happy_place='python -c "import this"'
+PYTHONDONTWRITEBYTECODE=True
 
 export EDITOR=/usr/local/bin/vim
 
