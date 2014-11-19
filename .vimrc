@@ -1,11 +1,24 @@
 set nocompatible
 set autoindent
+set encoding=utf-8
 
-" Enable Pathogen
-execute pathogen#infect()
+" Line numbers
+set number
 
-syntax on
+" Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-commentary'
+Plugin 'wincent/command-t'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+call vundle#end()
+
 filetype plugin indent on
+syntax on
 
 " Strangely enough, mouse works fine in xterm2 without this line. In tmux,
 " however, this line is necessary.
@@ -42,10 +55,18 @@ set backspace=2
 " Treat all numbers as decimal
 set nrformats=
 
-" Status bar
-set ruler
-
 let g:vim_isort_map = '<C-i>'
 
 " Ignore file types
 set wildignore=*.pyc,*.gif,*.png,*.jpg
+
+" Solarized
+set background=dark
+colorscheme solarized
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+
+" Powerline
+set laststatus=2
+set fillchars+=stl:\ ,stlnc:\
+let g:Powerline_symbols = 'fancy'

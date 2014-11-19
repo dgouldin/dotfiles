@@ -1,6 +1,8 @@
 export ARCHFLAGS="-arch x86_64"
+export GOPATH=/usr/local/gocode
+export GOBIN=$GOPATH/bin
 
-PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/1.9.3-p194/bin:~/github/git-hooks:/usr/X11/bin:~/bin:$PATH
+PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/1.9.3-p194/bin:~/github/git-hooks:/usr/X11/bin:~/bin:$GOPATH/bin:$PATH
 
 alias pycrm="find . -name '*.pyc' -delete"
 alias dgouldin_tunnel='ssh -NR20020:127.0.0.1:8000 gould.in'
