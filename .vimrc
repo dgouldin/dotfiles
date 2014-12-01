@@ -70,3 +70,6 @@ let g:solarized_contrast = "high"
 set laststatus=2
 set fillchars+=stl:\ ,stlnc:\
 let g:Powerline_symbols = 'fancy'
+
+" Command-T
+set wildignore +=Godeps/**
