@@ -3,3 +3,6 @@
 --type-add=ruby=.haml,.builder
 --type-add=css=.scss
 --type-set=views=.erb,.haml
+--ignore-dir=env
+--ignore-dir=venv
+--ignore-dir=build
