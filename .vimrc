@@ -9,12 +9,15 @@ set number
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'othree/yajs.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'andviro/flake8-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -71,5 +74,12 @@ set laststatus=2
 set fillchars+=stl:\ ,stlnc:\
 let g:Powerline_symbols = 'fancy'
 
-" Command-T
-set wildignore +=Godeps/**
+" Ctrl-P
+set wildignore +=Godeps/**,env/**,venv/**
+
+" Javascript libraries
+let g:used_javascript_libs = 'react,flux,yajs'
+
+" Flake8
+let g:PyFlakeAggressive = 10
+let g:PyFlakeOnWrite = 1
