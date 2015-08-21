@@ -75,7 +75,7 @@ set fillchars+=stl:\ ,stlnc:\
 let g:Powerline_symbols = 'fancy'
 
 " Ctrl-P
-set wildignore +=Godeps/**,env/**,venv/**
+set wildignore+=*/Godeps/*,*/env/*,*/venv/*,*/build/*,*/node_modules/*
 
 " Javascript libraries
 let g:used_javascript_libs = 'react,flux,yajs'
