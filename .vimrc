@@ -5,10 +5,24 @@ set encoding=utf-8
 " Line numbers
 set number
 
+" Remaps
+inoremap  jj       <ESC>
+inoremap  <Esc>    <NOP>
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+" noremap   <Esc>    <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
 " Vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
@@ -17,7 +31,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'andviro/flake8-vim'
+" Plugin 'andviro/flake8-vim'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 filetype plugin indent on
@@ -83,3 +98,17 @@ let g:used_javascript_libs = 'react,flux,yajs'
 " Flake8
 let g:PyFlakeAggressive = 10
 let g:PyFlakeOnWrite = 1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" Javascript syntax checking
+let g:syntastic_javascript_checkers = []
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []

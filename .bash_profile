@@ -1,8 +1,9 @@
 export ARCHFLAGS="-arch x86_64"
 export GOPATH=/usr/local/gocode
 export GOBIN=$GOPATH/bin
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 
-PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/1.9.3-p194/bin:~/github/git-hooks:/usr/X11/bin:~/bin:$GOPATH/bin:$PATH
+PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/1.9.3-p194/bin:~/github/git-hooks:/usr/X11/bin:~/bin:$GOPATH/bin:$PATH:./node_modules/.bin
 
 alias pycrm="find . -name '*.pyc' -delete"
 alias dgouldin_tunnel='ssh -NR20020:127.0.0.1:8000 gould.in'
@@ -10,6 +11,7 @@ alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop'
 alias t='./manage.py test --with-progressive --traverse-namespace -s'
 
+export HOMEBREW_GITHUB_API_TOKEN=ddfa0a3cb0fc652ff9d5a8d2432dd72a5bfe3c51
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
@@ -44,3 +46,23 @@ tmux() {
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# git aliases
+alias gs="git status"
+alias gp="git pull --ff-only"
+alias gpm="git checkout master; git pull --ff-only"
+alias gco="git checkout"
+alias ga="git add -p"
+alias gc="git commit"
+alias gf="git fetch origin"
+alias git_find="git log --all --"
+
+alias fr="forego run"
+
+# EXO
+aws_get_exo_error_report() {
+  aws s3 cp s3://exo-error-reports/$1.json /tmp/$1.json --profile mfa
+  aws s3 cp s3://exo-error-reports/$1.png /tmp/$1.png --profile mfa
+  open /tmp/$1.json
+  open /tmp/$1.png
+}
