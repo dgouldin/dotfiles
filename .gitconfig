@@ -5,3 +5,7 @@
 	excludesfile = /Users/dgouldin/.gitignore_global
 [color]
 	ui = auto
+[credential]
+	helper = store
+[alias]
+	praise = blame
