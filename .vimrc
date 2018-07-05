@@ -31,8 +31,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plugin 'andviro/flake8-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'ambv/black'
 call vundle#end()
 
 filetype plugin indent on
@@ -60,6 +60,9 @@ set textwidth=80
 set colorcolumn=80
 set formatoptions=cqt
 highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
+
+" Let Black handle python wrapping
+autocmd FileType python setlocal textwidth=999 nowrap
 
 " Git commit messages should wrap at 72 characters
 autocmd FileType gitcommit setlocal textwidth=72 fo+=t
@@ -95,10 +98,6 @@ set wildignore+=*/Godeps/*,*/env/*,*/venv/*,*/build/*,*/node_modules/*
 " Javascript libraries
 let g:used_javascript_libs = 'react,flux,yajs'
 
-" Flake8
-let g:PyFlakeAggressive = 10
-let g:PyFlakeOnWrite = 1
-
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -108,7 +107,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
 
 " Javascript syntax checking
-let g:syntastic_javascript_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []
+
+" Black
+autocmd BufWritePost *.py silent! execute ':Black'
