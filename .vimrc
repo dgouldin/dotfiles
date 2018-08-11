@@ -114,4 +114,4 @@ let g:syntastic_javascript_checkers = ['eslint']
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []
 
 " Black
-autocmd BufWritePost *.py silent! execute ':Black'
+autocmd BufWritePre *.py silent! execute ':Black'
