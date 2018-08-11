@@ -11,11 +11,6 @@ alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop'
 alias t='./manage.py test --with-progressive --traverse-namespace -s'
 
-export HOMEBREW_GITHUB_API_TOKEN=ddfa0a3cb0fc652ff9d5a8d2432dd72a5bfe3c51
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
 export EDITOR=/usr/local/bin/vim
 
 vol () { osascript -e "set volume output volume $*"; }
@@ -58,11 +53,6 @@ alias gf="git fetch origin"
 alias git_find="git log --all --"
 
 alias fr="forego run"
+alias dc="docker-compose"
 
-# EXO
-aws_get_exo_error_report() {
-  aws s3 cp s3://exo-error-reports/$1.json /tmp/$1.json --profile mfa
-  aws s3 cp s3://exo-error-reports/$1.png /tmp/$1.png --profile mfa
-  open /tmp/$1.json
-  open /tmp/$1.png
-}
+export AWS_PROFILE=mfa
